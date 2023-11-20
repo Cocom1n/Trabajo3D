@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Transform groundcheck;
+    public LayerMask ground;
     private Rigidbody rb;// referencia al rigidbody
-    public float moveSpeed;// velocidad de desplazamietno
     public Vector2 sensitivity;// para la sencibilidad del mouse
+    public float moveSpeed;// velocidad de desplazamieto
+    public float jumpSpeed;
+    public bool tocaSuelo;
 
     [SerializeField] public Transform cameraPlayer; // una referencia a la camara
 
@@ -15,9 +19,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;// para que el mouse no se salga de la ventana del juego (press ESC para ver el mouse)
-        moveSpeed = 15f;
-        sensitivity.x = 3f;
-        sensitivity.y = 3f;
     }
 
     // Update is called once per frame
@@ -59,10 +60,25 @@ public class PlayerController : MonoBehaviour
         // para el despazamiento del player
         float hor = Input.GetAxisRaw("Horizontal");// en eje (X)
         float ver = Input.GetAxisRaw("Vertical");// en eje (Z)
-        if (hor != 0.0f || ver != 0.0f)
+
+        // if (hor != 0.0f || ver != 0.0f)
+        // {
+        //     Vector3 dir = transform.forward * ver + transform.right * hor;
+        //     rb.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
+        // }
+
+        Vector3 mover;
+        if(hor != 0 || ver != 0){
+            mover = (transform.forward * ver + transform.right * hor).normalized * moveSpeed; //el mov en diagonal se hace a vel normal
+        }else{
+            mover = Vector3.zero; //si no se aprieta ningun boton se queda quieto
+        }
+        mover.y = rb.velocity.y; // se aplica gravedad
+        rb.velocity = mover;
+        tocaSuelo = Physics.CheckSphere(groundcheck.position, .2f, ground); //revisa si toca el suelo con el Layer del PLano
+        if (Input.GetButtonDown("Jump") && tocaSuelo)
         {
-            Vector3 dir = transform.forward * ver + transform.right * hor;
-            rb.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse); //aplica impulso del salto
         }
     }
 }
