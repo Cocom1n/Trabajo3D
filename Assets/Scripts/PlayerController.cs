@@ -6,11 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public Transform groundcheck;
     public LayerMask ground;
+    public LayerMask walls;
     private Rigidbody rb;// referencia al rigidbody
     public Vector2 sensitivity;// para la sencibilidad del mouse
     public float moveSpeed;// velocidad de desplazamieto
     public float jumpSpeed;
     public bool tocaSuelo;
+    public bool tocaPared;
 
     [SerializeField] public Transform cameraPlayer; // una referencia a la camara
 
@@ -27,7 +29,6 @@ public class PlayerController : MonoBehaviour
         UpdateMove();
         UpdateMouseMove();
     }
-
 
     //metodo para controlar la vista del player
     public void UpdateMouseMove()
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
             cameraPlayer.localEulerAngles = rotation;
         }
     }
+
     // metodo para el desplazamiento del player
     public void UpdateMove()
     {
@@ -75,7 +77,11 @@ public class PlayerController : MonoBehaviour
         }
         mover.y = rb.velocity.y; // se aplica gravedad
         rb.velocity = mover;
-        tocaSuelo = Physics.CheckSphere(groundcheck.position, .2f, ground); //revisa si toca el suelo con el Layer del PLano
+        tocaSuelo = Physics.CheckSphere(groundcheck.position, .6f, ground); //revisa si toca el suelo con el Layer del Plano
+        tocaPared = Physics.CheckSphere(groundcheck.position, .6f, walls);
+        if(tocaPared == true && tocaSuelo != true){
+            mover.y = rb.velocity.y * 2f;
+        }
         if (Input.GetButtonDown("Jump") && tocaSuelo)
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse); //aplica impulso del salto
