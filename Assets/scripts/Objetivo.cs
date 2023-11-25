@@ -8,7 +8,7 @@ public class Objetivo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position= new Vector3(Random.Range(-16,16),0f,Random.Range(-16,16));
+        transform.position= new Vector3(Random.Range(-17.29f, 19.14f),-3.35f, Random.Range(4.7f, 41.12f));
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class Objetivo : MonoBehaviour
         {                
             check = true;
             Debug.Log("posicion del objetivo"+transform.position);
-           transform.position= new Vector3(Random.Range(-16,16),0f,Random.Range(-16,16));
+           transform.position= new Vector3(Random.Range(-17.29f, 19.14f),-3.35f, Random.Range(4.7f, 41.12f));
         }
         
     }
