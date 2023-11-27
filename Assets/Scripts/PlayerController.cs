@@ -9,20 +9,21 @@ public class PlayerController : MonoBehaviour
     public LayerMask ground;
     public LayerMask walls;
     private Rigidbody rb;// referencia al rigidbody
-    public Vector2 sensitivity;// para la sencibilidad del mouse
-    public float moveSpeed;// velocidad de desplazamieto
+    private Vector2 sensitivity;// para la sencibilidad del mouse
+    private float moveSpeed;// velocidad de desplazamieto
     public float jumpSpeed;
     public bool tocaSuelo;
     public bool tocaPared;
-    // [SerializeField] private AudioSource sonido;
-    [SerializeField] public Transform cameraPlayer; // una referencia a la camara
+    [SerializeField] private Transform cameraPlayer; // una referencia a la camara
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;// para que el mouse no se salga de la ventana del juego (press ESC para ver el mouse)
-        // sonido = GetComponent<AudioSource>();
+        sensitivity.x = 3f;
+        sensitivity.y = 3f;
+        moveSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -64,12 +65,6 @@ public class PlayerController : MonoBehaviour
         // para el despazamiento del player
         float hor = Input.GetAxisRaw("Horizontal");// en eje (X)
         float ver = Input.GetAxisRaw("Vertical");// en eje (Z)
-
-        // if (hor != 0.0f || ver != 0.0f)
-        // {
-        //     Vector3 dir = transform.forward * ver + transform.right * hor;
-        //     rb.MovePosition(transform.position + dir * moveSpeed * Time.deltaTime);
-        // }
 
         Vector3 mover;
         if(hor != 0 || ver != 0){
