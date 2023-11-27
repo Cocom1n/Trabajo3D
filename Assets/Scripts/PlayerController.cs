@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     public bool tocaSuelo;
     public bool tocaPared;
-
     [SerializeField] private Transform cameraPlayer; // una referencia a la camara
 
     // Start is called before the first frame update
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
         Vector3 mover;
         if(hor != 0 || ver != 0){
             mover = (transform.forward * ver + transform.right * hor).normalized * moveSpeed; //el mov en diagonal se hace a vel normal
+            // sonido.Play();
         }else{
             mover = Vector3.zero; //si no se aprieta ningun boton se queda quieto
         }
