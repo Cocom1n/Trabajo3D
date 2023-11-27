@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState = CursorLockMode.Locked;// para que el mouse no se salga de la ventana del juego (press ESC para ver el mouse)
         sensitivity.x = 3f;
         sensitivity.y = 3f;
         moveSpeed = 5f;

@@ -17,7 +17,6 @@ public class TorchCounter : MonoBehaviour
         if (TorchCounter.Instance == null)
         {
             TorchCounter.Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
