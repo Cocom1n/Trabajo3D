@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if (hor != 0)
         {
+            Debug.Log("horizontal: " + hor);
             transform.Rotate(0, hor * sensitivity.x, 0);
         }
         if (ver != 0)
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
             {
                 rotation.x = 280;
             }
+            Debug.Log("vertical: " + ver);
             cameraPlayer.localEulerAngles = rotation;
         }
     }
@@ -77,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
         mover.y = rb.velocity.y; // se aplica gravedad
         rb.velocity = mover;
-        tocaSuelo = Physics.CheckSphere(groundcheck.position, .6f, ground); //revisa si toca el suelo con el Layer del Plano
+        tocaSuelo = Physics.CheckSphere(groundcheck.position, .2f, ground); //revisa si toca el suelo con el Layer del Plano
         tocaPared = Physics.CheckSphere(groundcheck.position, .6f, walls);
         if(tocaPared == true && tocaSuelo != true){
             mover.y = rb.velocity.y * 2f;
