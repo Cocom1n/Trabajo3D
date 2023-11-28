@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool tocaSuelo;
     public bool tocaPared;
     [SerializeField] private Transform cameraPlayer; // una referencia a la camara
+    [SerializeField] private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed = 5f;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         UpdateMove();
         UpdateMouseMove();
@@ -40,21 +39,21 @@ public class PlayerController : MonoBehaviour
 
         if (hor != 0)
         {
-            transform.Rotate(0, hor * sensitivity.x, 0);
+            transform.Rotate(0, hor * sensitivity.x, 0);//rota la camara acorde al eje del player
         }
         if (ver != 0)
         {
-            Vector3 rotation = cameraPlayer.localEulerAngles;
-            rotation.x = (rotation.x - ver * sensitivity.y + 360) % 360;
-            if (rotation.x > 80 && rotation.x < 180)
-            {
-                rotation.x = 80;
+            Vector3 rotation = cameraPlayer.localEulerAngles;//obtiene la rotacion de la camara
+            rotation.x = (rotation.x - ver * sensitivity.y + 360) % 360; //actualiza la rotacion en X pero q este debajo del 360
+            if (rotation.x > 40 && rotation.x < 180)
+            {//verifica si la rotacion esta entre 40 y 180 y si llega al limite inferior mantenerlo ahi
+                rotation.x = 40;
             }
             else if (rotation.x < 280 && rotation.x > 180)
-            {
+            {//verifica si la rotacion esta entre 280 y 180 y si llega al limite superior mantenerlo ahi
                 rotation.x = 280;
             }
-            cameraPlayer.localEulerAngles = rotation;
+            cameraPlayer.localEulerAngles = rotation; //aplica la rotacion actualizada
         }
     }
 
@@ -69,8 +68,10 @@ public class PlayerController : MonoBehaviour
         if(hor != 0 || ver != 0){
             mover = (transform.forward * ver + transform.right * hor).normalized * moveSpeed; //el mov en diagonal se hace a vel normal
             // sonido.Play();
+            animator.SetBool("IsRuning", true);
         }else{
             mover = Vector3.zero; //si no se aprieta ningun boton se queda quieto
+            animator.SetBool("IsRuning", false);
         }
         mover.y = rb.velocity.y; // se aplica gravedad
         rb.velocity = mover;
@@ -83,5 +84,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse); //aplica impulso del salto
         }
+    
     }
 }

@@ -2784,7 +2784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100166, guid: 555dddb0fd62c1a4a8a87449606cff55, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100166, guid: 555dddb0fd62c1a4a8a87449606cff55, type: 3}
       propertyPath: m_TagString
@@ -3369,7 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80ca83ab6029fd499119201f7b66d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 338924449}
+  jugador: {fileID: 1971697372}
   randomPosition: {fileID: 855436780}
   dentro: 0
   check: 0
@@ -3921,7 +3921,7 @@ Transform:
   m_GameObject: {fileID: 784567567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.57, z: 0}
+  m_LocalPosition: {x: 0, y: 1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5210,7 +5210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5645104587164561007, guid: ca655ed714501f641bee4f3aab066d60, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5645104587164561007, guid: ca655ed714501f641bee4f3aab066d60, type: 3}
       propertyPath: m_TagString
@@ -5875,7 +5875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053999bd1d8b51d4996caa4700731f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 338924449}
+  jugador: {fileID: 1971697372}
   dentro: 0
   speed: 2
 --- !u!65 &1050774913
@@ -11204,6 +11204,7 @@ MonoBehaviour:
   tocaSuelo: 0
   tocaPared: 0
   cameraPlayer: {fileID: 784567568}
+  animator: {fileID: 1971697378}
 --- !u!54 &1971697376
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11254,6 +11255,11 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.74, z: 0}
+--- !u!95 &1971697378 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: 555dddb0fd62c1a4a8a87449606cff55, type: 3}
+  m_PrefabInstance: {fileID: 619907151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2005130264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5354507050816822742, guid: 10701ba775d72e440b7e8daacffeb879, type: 3}
