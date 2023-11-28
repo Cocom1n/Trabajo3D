@@ -14,18 +14,16 @@ using UnityEngine.SceneManagement;
 
     public float tiempoBusqueda = 10f;  
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         enemigo = GetComponent<UnityEngine.AI.NavMeshAgent>();
-          Debug.Log(enemigo.destination);
-       
+        Debug.Log(enemigo.destination);
 	}
 	
     void OnTriggerEnter(Collider other)
     {
-         if (other.tag == "Objetivo")
+        if (other.tag == "Objetivo")
         {
-        
             enemigo.destination = randomPosition.position;
             Debug.Log(enemigo.destination);
         }
@@ -44,17 +42,14 @@ using UnityEngine.SceneManagement;
             StartCoroutine(actualizarCronometro());
             dentro = false;
         }
-       
-        
     }
-	// Update is called once per frame
+
 	void Update () {
 		
         if (dentro)
         {
             check=true;
             tiempoBusqueda=10f;
-           
         }
         if(check)
         {
@@ -66,11 +61,10 @@ using UnityEngine.SceneManagement;
         }
             if(tiempoBusqueda< 0f)
             {
-               
                 check=false;
                 Debug.Log("se escapo el jugador");
                 tiempoBusqueda=10f;
-                  StopAllCoroutines();
+                StopAllCoroutines();
             }
 
 	}
@@ -80,7 +74,7 @@ using UnityEngine.SceneManagement;
         {
             Debug.Log("persiguiendo jugador"+tiempoBusqueda);
             tiempoBusqueda = tiempoBusqueda - Time.deltaTime;
-             yield return null;
+            yield return null;
         }
        
     }

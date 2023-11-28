@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (ver != 0)
         {
             Vector3 rotation = cameraPlayer.localEulerAngles;//obtiene la rotacion de la camara
+            Debug.Log("asda"+ ver);
             rotation.x = (rotation.x - ver * sensitivity.y + 360) % 360; //actualiza la rotacion en X pero q este debajo del 360
             if (rotation.x > 40 && rotation.x < 180)
             {//verifica si la rotacion esta entre 40 y 180 y si llega al limite inferior mantenerlo ahi
@@ -77,12 +78,15 @@ public class PlayerController : MonoBehaviour
         rb.velocity = mover;
         tocaSuelo = Physics.CheckSphere(groundcheck.position, .6f, ground); //revisa si toca el suelo con el Layer del Plano
         tocaPared = Physics.CheckSphere(groundcheck.position, .6f, walls);
+        
         if(tocaPared == true && tocaSuelo != true){
+            //rb.velocity = new Vector3(0f, -.5f, 0f) * moveSpeed;//cae hasta que toca el suelo
             mover.y = rb.velocity.y * 2f;
         }
         if (Input.GetButtonDown("Jump") && tocaSuelo)
         {
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse); //aplica impulso del salto
+            
         }
     
     }
