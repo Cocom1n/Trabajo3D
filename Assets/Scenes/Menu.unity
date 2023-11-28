@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,7 +550,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -155.99994, y: -200}
+  m_AnchoredPosition: {x: -155.99994, y: -200.00002}
   m_SizeDelta: {x: -676.628, y: -461.082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &791353714
@@ -756,8 +756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -223.99994, y: -135.43}
-  m_SizeDelta: {x: -484.351, y: -411.097}
+  m_AnchoredPosition: {x: -231.56, y: -82}
+  m_SizeDelta: {x: -525.5, y: -328.663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1228300946
 MonoBehaviour:
@@ -779,17 +779,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nombre Juego
+  m_text: 'Labyrinth
+
+    of Mole'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f214f765ad5a4624a8b84fd0b74eeec1, type: 2}
+  m_sharedMaterial: {fileID: 4757757639313366963, guid: f214f765ad5a4624a8b84fd0b74eeec1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4288075775
+  m_fontColor: {r: 1, g: 0.8431373, b: 0.5882353, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -806,14 +808,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 65.7
+  m_fontSizeBase: 65.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1238,7 +1240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300.69196, y: -200}
+  m_AnchoredPosition: {x: -300.69193, y: -200.00002}
   m_SizeDelta: {x: -676.628, y: -461.082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2078083430
