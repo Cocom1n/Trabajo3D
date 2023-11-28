@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
     public class seguirjugador : MonoBehaviour {
     public Transform jugador;
@@ -31,7 +32,7 @@ using UnityEngine;
          
         if (other.tag == "Player")
         {
-            dentro = true;
+            SceneManager.LoadScene(3);
         }
 
     }

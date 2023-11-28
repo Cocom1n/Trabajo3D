@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemigo3 : MonoBehaviour
 {
-   public Transform jugador;
+   //public Transform jugador;
    public Transform[] puntos;
    
 
@@ -23,7 +24,7 @@ public class Enemigo3 : MonoBehaviour
    {
        if (other.tag == "Player")
        {
-           dentro = true;
+            SceneManager.LoadScene(3);
        }
        if (other.tag == "Puntos")
        {
@@ -33,18 +34,18 @@ public class Enemigo3 : MonoBehaviour
 
    }
 
-   void OnTriggerExit(Collider other)
-   {
-       if (other.tag == "Player")
-       {
+//    void OnTriggerExit(Collider other)
+//    {
+//        if (other.tag == "Player")
+//        {
         
-           dentro = false;
-       }
-       if (other.tag == "Puntos")
-       {
+//            dentro = false;
+//        }
+//        if (other.tag == "Puntos")
+//        {
 
-       }
-   }
+//        }
+//    }
    // Update is called once per frame
    void Update()
    {
